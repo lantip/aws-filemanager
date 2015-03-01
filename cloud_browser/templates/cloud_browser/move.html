@@ -1,0 +1,28 @@
+<center>
+<form method="post" action="{{ move_action }}">
+{% csrf_token %}
+<table>
+<tr>
+    <center><td>Move "{{ src_path }}" to ...</td></center>
+</tr>
+<tr>
+    <td>
+        <input type="hidden" name="container_name" value="{{ container_name }}">
+        <input type="hidden" name="src_path" value="{{ src_path }}">
+        <input type="hidden" name="is_file" value="{{ is_file }}">
+        <input name="wd_path" value="{{ wd_path }}" type="hidden">
+        <center><select name="target_dir_path">
+        {% for dir_path in all_dirs_paths %}
+            {% if dir_path %}
+                <option value="{{dir_path}}">{{dir_path}}</option>
+            {% else %}
+                <option value="{{dir_path}}">ROOT</option>
+            {% endif %}
+        {% endfor %}
+        </select></center>
+    </td>
+</tr>
+</table>
+<input type="submit" value="MOVE" />
+</form>
+</center>

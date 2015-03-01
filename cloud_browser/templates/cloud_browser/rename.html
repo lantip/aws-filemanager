@@ -1,0 +1,21 @@
+<center>
+<form method="post" action="{{ rename_action }}">
+{% csrf_token %}
+<table>
+<tr>
+    <td>Please enter a new name:</td>
+</tr>
+<tr>
+    <td>
+        <input type="hidden" name="container_name" value="{{ container_name }}">
+        <input type="hidden" name="src_path" value="{{ src_path }}">
+        <input type="hidden" name="is_file" value="{{ is_file }}">
+        <input name="wd_path" value="{{ wd_path }}" type="hidden">
+        <input type="text" name="new_basename" value="{{src_basename}}" size=35>
+    </td>
+</tr>
+</table>
+
+<input type="submit" value="RENAME" />
+</form>
+</center>
